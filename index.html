@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Companion – UX/UI Case Study</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background-color: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 15px rgba(45, 156, 219, 0.08);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        nav .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: #2d9cdb;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555555;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #2d9cdb;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #1a1a1a;
+            text-align: center;
+        }
+
+        section h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            margin-top: 50px;
+            color: #2d9cdb;
+            text-align: center;
+        }
+
+        section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.4rem;
+            color: #666666;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+
+        .hero .meta {
+            font-size: 1rem;
+            color: #888888;
+            margin-bottom: 10px;
+        }
+
+        .hero-image {
+            margin-top: 60px;
+            width: 100%;
+            max-width: 900px;
+            height: 500px;
+            background-color: #e0e0e0;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            color: #999999;
+            font-size: 1.2rem;
+        }
+
+        /* Problem Statement */
+        .problem-statement {
+            background-color: #f8f9fa;
+        }
+
+        /* Image Placeholder */
+        .image-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999999;
+            font-size: 1.1rem;
+            margin: 30px 0;
+        }
+
+        .image-placeholder.small {
+            height: 300px;
+        }
+
+        .image-placeholder.large {
+            height: 500px;
+        }
+
+        /* Image Containers */
+        .image-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Persona Cards */
+        .persona-card {
+            text-align: center;
+        }
+
+        .persona-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(45, 156, 219, 0.1);
+        }
+
+        .persona-card p {
+            margin-top: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Sketch Cards */
+        .sketch-card {
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .sketch-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background-color: white;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(45, 156, 219, 0.08);
+        }
+
+        .sketch-card p {
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Screen Cards for Prototype */
+        .screen-card {
+            text-align: center;
+        }
+
+        .screen-card img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            margin: 0 auto;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(45, 156, 219, 0.15);
+        }
+
+        .screen-card p {
+            margin-top: 12px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Persona Grid */
+        .persona-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin: 40px 0;
+        }
+
+        .persona-grid > * {
+            flex: 0 0 calc(20% - 20px);
+            max-width: 200px;
+            min-width: 180px;
+        }
+
+        /* Prototype Grid */
+        .prototype-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .prototype-grid > * {
+            flex: 0 0 auto;
+        }
+
+        /* Comparison Layout (Before/After) */
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .comparison-item {
+            text-align: center;
+        }
+
+        .comparison-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #333333;
+            font-weight: 600;
+        }
+
+        /* Final Design Section */
+        .final-design {
+            background-color: #f8f9fa;
+        }
+
+        .final-design-image {
+            width: 100%;
+            max-width: 800px;
+            height: 600px;
+            background-color: #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999999;
+            font-size: 1.2rem;
+            margin: 40px auto;
+        }
+
+        /* Reflection Section */
+        .reflection {
+            background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
+        }
+
+        /* Responsive Design */
+                @media (max-width: 768px) {
+            .persona-grid > * {
+                flex: 0 0 calc(50% - 12px);
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav ul {
+                gap: 20px;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-image {
+                height: 350px;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            section h3 {
+                font-size: 1.5rem;
+            }
+
+            section p {
+                font-size: 1rem;
+            }
+
+            .comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .persona-grid > * {
+                flex: 0 0 100%;
+            }
+
+            .persona-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .prototype-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .hero {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+
+            .image-placeholder {
+                height: 250px;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+        }
+
+        /* Accent Styling */
+        .accent {
+            color: #2d9cdb;
+        }
+
+        .highlight-box {
+            background-color: #e3f2fd;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 4px solid #2d9cdb;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Health Companion</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#ideation">Ideation</a></li>
+                <li><a href="#prototype">Prototype</a></li>
+                <li><a href="#testing">Testing</a></li>
+                <li><a href="#final">Final Design</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Health Companion</h1>
+            <p class="subtitle">A Super App for Managing Chronic Health Conditions</p>
+            <p class="meta"><strong>Vincent</strong> | UX/UI Design Course | 2026</p>
+            <div style="margin-top: 50px; max-width: 280px; margin-left: auto; margin-right: auto;">
+                <img src="images/Welcome_frame.png" alt="Health Companion Welcome Screen" style="width: 100%; height: auto; border-radius: 14px; box-shadow: 0 10px 40px rgba(45, 156, 219, 0.2);">
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section id="problem" class="problem-statement">
+        <div class="container">
+            <h2>Problem Statement</h2>
+            <p>
+                People with chronic conditions face significant challenges in managing their health: they forget 
+                medications, miss appointments, and feel overwhelmed managing health information across multiple 
+                platforms. Current health apps are often confusing, visually overwhelming, and don't adequately 
+                support communication between patients, caregivers, and healthcare professionals.
+            </p>
+            <div class="highlight-box">
+                <p style="margin: 0; font-weight: 500;">
+                    <span class="accent">Goal:</span> Help users remember medications, track intake, manage 
+                    appointments, and communicate with healthcare professionals through a simple, intuitive 
+                    interface designed for people with chronic conditions, their caregivers, and healthcare providers.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research & Discovery -->
+    <section id="research">
+        <div class="container">
+            <h2>Research & Discovery</h2>
+            <p>
+                To understand the needs of our users, I conducted primary research through an online survey 
+                and complemented it with secondary research. A 10-question survey was distributed to 50 
+                participants with chronic conditions, exploring medication adherence, appointment management, 
+                and current use of health apps. Existing studies on medication adherence and chronic disease 
+                management were also reviewed.
+            </p>
+
+            <h3>Key Research Insights</h3>
+            <div class="highlight-box">
+                <ul style="margin: 0; line-height: 2;">
+                    <li><strong>68%</strong> reported forgetting medications when routines changed or during travel</li>
+                    <li><strong>52%</strong> found existing health apps confusing or visually overwhelming</li>
+                    <li>Participants preferred <strong>clear, simple reminders</strong> over complex dashboards</li>
+                    <li>Inconsistent appointment notifications caused <strong>stress and anxiety</strong></li>
+                    <li>Users desired a simple way to send <strong>non-urgent messages</strong> to healthcare providers</li>
+                </ul>
+            </div>
+
+            <p>
+                These insights guided our design decisions, emphasizing clear interfaces, one-tap confirmations, 
+                caregiver access, and optional advanced features for power users.
+            </p>
+            
+            <h3>User Personas</h3>
+            <p>
+                Based on our research, I created five distinct personas representing different user types: 
+                primary users with chronic conditions, power users who want advanced features, caregivers, 
+                healthcare professionals, and supporting family members.
+            </p>
+            <div class="persona-grid">
+                <div class="persona-card">
+                    <img src="images/Marie_Tremblay.jpg" alt="Marie Tremblay - Main User">
+                    <p><strong>Marie Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Main User, Age 62</span></p>
+                </div>
+                <div class="persona-card">
+                    <img src="images/Alex_Nguyen.jpeg" alt="Alex Nguyen - Secondary User">
+                    <p><strong>Alex Nguyen</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Power User, Age 34</span></p>
+                </div>
+                <div class="persona-card">
+                    <img src="images/caregiver.webp" alt="Sophie Tremblay - Caregiver">
+                    <p><strong>Sophie Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Caregiver, Age 38</span></p>
+                </div>
+                <div class="persona-card">
+                    <img src="images/doctor.jpeg" alt="Dr. Samuel Cohen - Healthcare Professional">
+                    <p><strong>Dr. Samuel Cohen</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Family Physician</span></p>
+                </div>
+                <div class="persona-card">
+                    <img src="images/Jean_tremblay.jpeg" alt="Jean Tremblay - Supporting Family Member">
+                    <p><strong>Jean Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Supporting Family</span></p>
+                </div>
+            </div>
+
+            <div style="margin-top: 40px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 1: Marie Tremblay – Main User</h4>
+                <p><strong>Age:</strong> 62 | <strong>Occupation:</strong> Retired elementary school teacher</p>
+                <p><strong>Health Condition:</strong> Type 2 diabetes & hypertension | <strong>Tech Comfort:</strong> Low–medium (uses smartphone daily, limited app exploration)</p>
+                <p><strong>Devices:</strong> iPhone smartphone</p>
+                
+                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Take medication at the correct time every day</li>
+                    <li>Avoid complications and hospital visits</li>
+                    <li>Feel confident she is managing her health correctly</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Wants to remain independent</li>
+                    <li>Fears long-term health deterioration</li>
+                    <li>Trusts tools recommended by healthcare professionals</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Often forgets whether she already took her medication</li>
+                    <li>Finds most health apps visually overwhelming</li>
+                    <li>Small text and complex navigation cause frustration</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Relies heavily on alarms and reminders</li>
+                    <li>Avoids exploring new features unless necessary</li>
+                    <li>Prefers confirmation messages ("Medication taken")</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>How She Uses the App:</strong> Receives daily medication reminders, confirms intake with one tap, reviews a simple daily summary (no charts or analytics)</p>
+                
+                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Large buttons and readable fonts, minimal information per screen, clear feedback after every action</p>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 2: Alex Nguyen – Secondary User</h4>
+                <p><strong>Age:</strong> 34</p>
+                <p><strong>Condition:</strong> Autoimmune disease</p>
+                
+                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Track medications and appointments in one place</li>
+                    <li>Communicate efficiently with healthcare providers</li>
+                    <li>Identify patterns in symptoms over time</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Wants to optimize his health management</li>
+                    <li>Frustrated by juggling multiple apps</li>
+                    <li>Values efficiency and data accuracy</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Uses many health apps</li>
+                    <li>Wants everything in one place</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Uses reminders but often customizes them</li>
+                    <li>Checks health apps multiple times per day</li>
+                    <li>Appreciates data visualization when useful</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>How He Uses the App:</strong> Sets advanced medication reminders, logs symptoms alongside medication intake, uses messaging feature to ask non-urgent questions to doctors</p>
+                
+                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Optional advanced features, customizable reminders, clear navigation hierarchy</p>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 3: Sophie Tremblay – Caregiver</h4>
+                <p><strong>Age:</strong> 38 | <strong>Occupation:</strong> Office administrator</p>
+                <p><strong>Relationship:</strong> Daughter of Marie</p>
+                <p><strong>Tech Comfort:</strong> Medium–high | <strong>Devices:</strong> Smartphone, laptop</p>
+                
+                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Ensure her mother takes medication consistently</li>
+                    <li>Be alerted if something is missed</li>
+                    <li>Reduce stress without micromanaging</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Wants peace of mind while balancing work and family</li>
+                    <li>Feels responsible for her mother's wellbeing</li>
+                    <li>Wants to support independence, not replace it</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Does not know if medication was actually taken</li>
+                    <li>Worries when she cannot check in daily</li>
+                    <li>Finds phone reminders unreliable when not shared</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Checks in remotely rather than in person</li>
+                    <li>Prefers notifications only when something goes wrong</li>
+                    <li>Avoids overly medical or technical interfaces</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>How She Uses the App:</strong> Receives alerts if medication is missed, reviews a simple adherence history, sends gentle reminders or messages when needed</p>
+                
+                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Role-based access (caregiver vs patient), exception-based notifications (only when needed), simple summaries instead of raw data</p>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 4: Dr. Samuel Cohen – Healthcare Professional</h4>
+                <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> Family physician</p>
+                <p><strong>Tech Comfort:</strong> High, but time-constrained</p>
+                <p><strong>Devices:</strong> Desktop at clinic, tablet</p>
+                
+                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Quickly assess medication adherence</li>
+                    <li>Communicate clearly with patients outside appointments</li>
+                    <li>Avoid unnecessary follow-ups or misunderstandings</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Wants accurate, concise patient data</li>
+                    <li>Values tools that save time rather than add workload</li>
+                    <li>Trusts systems that are medically reliable</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Incomplete or inaccurate patient self-reporting</li>
+                    <li>Overly complex dashboards</li>
+                    <li>Too many non-urgent messages</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Skims information rather than reading deeply</li>
+                    <li>Uses messaging selectively</li>
+                    <li>Prefers summaries over raw logs</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>How He Uses the App:</strong> Reviews adherence summaries before appointments, responds to non-urgent patient questions, sends brief instructions or confirmations</p>
+                
+                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Read-only dashboards, clear summaries (no charts overload), messaging boundaries and prioritization</p>
+            </div>
+
+            <div style="margin-top: 30px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 5: Jean Tremblay – Supporting Family Member</h4>
+                <p><strong>Age:</strong> 65 | <strong>Occupation:</strong> Semi-retired accountant</p>
+                <p><strong>Relationship:</strong> Marie's husband</p>
+                <p><strong>Tech Comfort:</strong> Low | <strong>Devices:</strong> Smartphone (basic use), tablet</p>
+                
+                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Help his wife stay on track with her medication</li>
+                    <li>Understand her health status without managing the app himself</li>
+                    <li>Avoid making mistakes that could affect her health</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Wants to support his wife emotionally and practically</li>
+                    <li>Values reassurance that things are "under control"</li>
+                    <li>Prefers simple, familiar interactions</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Finds most health apps confusing</li>
+                    <li>Unsure when or how to intervene</li>
+                    <li>Does not want to learn complex features</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
+                <ul style="margin-left: 20px; line-height: 1.8;">
+                    <li>Occasionally checks reminders with Marie</li>
+                    <li>Relies on verbal confirmation rather than data</li>
+                    <li>Avoids interacting directly with the app unless necessary</li>
+                </ul>
+                
+                <p style="margin-top: 15px;"><strong>How He Uses the App:</strong> Views a very simple confirmation screen when helping Marie, receives reassurance messages like "Today's medication completed", rarely navigates beyond the home screen</p>
+                
+                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Extremely simple shared-view or companion mode, clear status indicators (taken / not taken), no requirement to configure settings or manage data</p>
+            </div>
+
+            <h3 style="margin-top: 50px;">User Journey Map</h3>
+            <div style="margin: 30px 0; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div class="image-container">
+                    <img src="images/User Journey Map.png" alt="User Journey Map">
+                </div>
+            </div>
+            <p style="margin-top: 20px;">
+                The user journey map illustrates the typical process from waking up and receiving a medication 
+                reminder, through taking medication, managing appointments, and communicating with healthcare 
+                professionals. Key touchpoints include morning reminders, confirmation interactions, appointment 
+                notifications, and messaging features.
+            </p>
+        </div>
+    </section>
+
+    <!-- Ideation & Wireframing -->
+    <section id="ideation">
+        <div class="container">
+            <h2>Ideation & Wireframing</h2>
+            <p>
+                The wireframing and prototyping phase translated the initial research, personas, and user 
+                journey into a structured and interactive mobile interface. The prototype was designed for 
+                a mobile device size (390 × 844) to reflect real-world usage patterns, since medication 
+                reminders and appointment management are primarily handled on smartphones.
+            </p>
+
+            <h3>Early Sketches & Low-Fidelity Planning</h3>
+            <div class="persona-grid">
+                <div class="sketch-card">
+                    <img src="images/sketch_medication_reminder_card.jpeg" alt="Medication Reminder Card Sketch">
+                    <p>Medication Card Concept</p>
+                </div>
+                <div class="sketch-card">
+                    <img src="images/sketch_home_screen_layout.jpeg" alt="Home Screen Layout Wireframe">
+                    <p>Home Screen Layout</p>
+                </div>
+                <div class="sketch-card">
+                    <img src="images/sketch_navigation_structure.jpeg" alt="Navigation Structure Sketch">
+                    <p>Navigation Structure</p>
+                </div>
+                <div class="sketch-card">
+                    <img src="images/sketch_information_hierarchy.jpeg" alt="Information Hierarchy Planning">
+                    <p>Information Hierarchy</p>
+                </div>
+                <div class="sketch-card">
+                    <img src="images/sketch_calendar&alarm.jpeg" alt="Calendar & Alarm Flow Sketch">
+                    <p>Calendar & Alarm Flow</p>
+                </div>
+                <div class="sketch-card">
+                    <img src="images/sketch_messages.jpeg" alt="Messaging Interface Sketch">
+                    <p>Messaging Interface</p>
+                </div>
+            </div>
+
+            <p>
+                Low-fidelity planning was initially used to determine layout hierarchy before refining the 
+                visual structure. Key design decisions included:
+            </p>
+
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+                <li><strong>Bottom Navigation Structure:</strong> Ensuring consistent orientation across all main sections (Home, Medication, Appointments, Messages, Profile)</li>
+                <li><strong>Card-Based Layout:</strong> Using cards to reduce cognitive overload and maintain visual cohesion</li>
+                <li><strong>Dark Theme:</strong> Creating a modern, calming aesthetic with careful attention to contrast and readability</li>
+                <li><strong>Priority Information:</strong> Home screen prioritizes "Today's medication status" followed by next appointment</li>
+                <li><strong>Clear Status Indicators:</strong> Visual confirmation states to reduce ambiguity about medication intake</li>
+            </ul>
+
+            <h3>Design System Components</h3>
+            <p>
+                To enhance realism and maintain consistency, reusable components were created in Figma:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px;">
+                <li>Input fields for name, email, password, and phone number with consistent spacing</li>
+                <li>Interactive checkbox elements for "Remember me" and terms agreement</li>
+                <li>Medication cards with dosage, time, and status indicators</li>
+                <li>Confirmation buttons structured for realistic interactions</li>
+                <li>Calendar interface with alarm configuration</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Prototype Development -->
+    <section id="prototype">
+        <div class="container">
+            <h2>Prototype Development</h2>
+            <p>
+                The high-fidelity prototype includes multiple frames representing key stages of the user flow. 
+                Each frame was designed using a consistent dark theme and card-based layout to maintain visual 
+                cohesion and reduce cognitive overload. The application follows a bottom navigation structure 
+                accessible from every screen.
+            </p>
+
+            <h3>Key Screens</h3>
+            <div class="prototype-grid">
+                <div class="screen-card">
+                    <img src="images/Welcome_frame.png" alt="Welcome Screen">
+                    <p>Welcome Screen</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Sign_in_frame.png" alt="Sign In Screen">
+                    <p>Sign In</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Sign_up_frame.png" alt="Sign Up Screen">
+                    <p>Sign Up</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Home_frame.png" alt="Home Dashboard">
+                    <p>Home Dashboard</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/View_Medication_frame.png" alt="Medication View">
+                    <p>Medication View</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Calendar&Alarm_frame.png" alt="Calendar & Alarm Setup">
+                    <p>Calendar & Alarm</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Messages_frame.png" alt="Messages List View">
+                    <p>Messages List</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Conversation_frame.png" alt="Doctor Conversation">
+                    <p>Conversation View</p>
+                </div>
+                <div class="screen-card">
+                    <img src="images/Profile_frame.png" alt="Profile Screen">
+                    <p>Profile Screen</p>
+                </div>
+            </div>
+
+            <h3>Interactive Prototype Features</h3>
+            <p>
+                The prototype was made fully interactive using Figma's prototyping tools to simulate real 
+                app behavior:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+                <li>Bottom navigation bar is fully clickable, allowing seamless movement between main sections</li>
+                <li>Buttons such as "Next," "Confirm," and "Mark as Taken" connect to their respective frames</li>
+                <li>Users can open conversations from the Messages screen and return using the back arrow</li>
+                <li>Calendar confirmation buttons and alarm setup interactions demonstrate scheduling behavior</li>
+                <li>Interactive components simulate selection states for checkboxes and input fields</li>
+            </ul>
+
+            <h3 style="margin-top: 50px;">Prototype Video Walkthrough</h3>
+            <div style="margin: 30px auto; text-align: center; max-width: 700px;">
+                <video controls style="width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);">
+                    <source src="images/Prototype.mov" type="video/quicktime">
+                    <source src="images/Prototype.mov" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p style="margin-top: 15px; color: #666; font-style: italic; font-size: 0.95rem;">Interactive prototype demonstration showing key user flows</p>
+            </div>
+
+            <div class="highlight-box">
+                <p style="margin: 0; font-weight: 500;">
+                    <span class="accent">🔗 Interactive Prototype:</span> 
+                    <a href="https://www.figma.com/proto/uD1RhKxlrEv1yrsdKdVZvZ/Mini-Project-357?t=baYZeiPYBVTVJMsu-1&scaling=scale-down&content-scaling=fixed&page-id=68%3A164&node-id=68-170&starting-point-node-id=68%3A165" 
+                       target="_blank" 
+                       style="color: #2d9cdb; text-decoration: underline;">
+                        View the full clickable prototype on Figma →
+                    </a>
+                </p>
+            </div>
+
+            <p>
+                The prototype demonstrates core functionality through clickable interactions while maintaining 
+                a clean and accessible interface. The use of consistent components, structured navigation, and 
+                interactive elements ensures that the design supports user-centered principles and enables 
+                meaningful usability testing.
+            </p>
+        </div>
+    </section>
+
+    <!-- Usability Testing -->
+    <section id="testing">
+        <div class="container">
+            <h2>Usability Testing</h2>
+            <p>
+                To evaluate the effectiveness of the Health Companion prototype, a formative usability test 
+                was planned focusing on task completion, navigation clarity, and information hierarchy. The 
+                goal was to determine whether users can easily manage medications, view appointments, and 
+                communicate with healthcare professionals using the bottom navigation structure and card-based 
+                interface.
+            </p>
+
+            <h3>Testing Methodology</h3>
+            <p>
+                The test would involve 5–7 participants representing individuals managing chronic conditions, 
+                such as Type 2 Diabetes or hypertension (similar to persona Marie Tremblay). Participants would 
+                interact with the clickable Figma prototype on a mobile-sized display (390 × 844).
+            </p>
+
+            <h3>Test Tasks</h3>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+                <li>Check today's medication status on the Home screen</li>
+                <li>Navigate to the Medication screen and mark a medication as taken</li>
+                <li>Set an alarm in the Calendar & Alarm section</li>
+                <li>View details of the next appointment</li>
+                <li>Open a message conversation with a doctor</li>
+                <li>Locate notification settings within the Profile screen</li>
+            </ul>
+
+            <h3>Observation Focus</h3>
+            <p>
+                A think-aloud method would be used during testing to understand users' thought processes. 
+                Observations would focus on:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+                <li>Whether users understand status labels such as "Status: Today" and green confirmation indicators</li>
+                <li>Whether they can easily identify the "Confirm" button in the alarm setup</li>
+                <li>Whether the bottom navigation icons are intuitive</li>
+                <li>Task completion time and navigation errors</li>
+                <li>Visual clarity of the dark interface and text readability</li>
+            </ul>
+
+            <div class="highlight-box">
+                <h3 style="margin-top: 0;">Expected Findings & Iterations</h3>
+                <p style="margin-bottom: 15px;">
+                    Feedback would be analyzed by identifying recurring usability issues, such as confusion 
+                    about labels, difficulty locating features, or visual overload in sections like the calendar.
+                </p>
+                <p style="margin: 0;">
+                    <strong>Planned Improvements:</strong> Increasing contrast for important buttons, enlarging 
+                    confirmation indicators, simplifying calendar controls, and clarifying tab icons with 
+                    stronger labels. The prototype would then be refined and retested to validate improvements.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iterations -->
+    <section id="iterations">
+        <div class="container">
+            <h2>Iterations & Improvements</h2>
+            <p>
+                The design process involved continuous refinement based on research insights, persona needs, 
+                and anticipated usability feedback. Several key challenges required iterative solutions to 
+                balance visual appeal with usability.
+            </p>
+
+            <h3>Key Design Challenges & Solutions</h3>
+
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>Challenge: Dark Theme Readability</h4>
+                    <div style="text-align: center; max-width: 350px; margin: 0 auto;">
+                        <div class="image-container">
+                            <img src="images/bad_contrast_with_dark_theme.png" alt="Initial Dark Theme - Low Contrast">
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Initial design had insufficient contrast between text and background, making it difficult for older users like Marie to read</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Solution: Enhanced Contrast</h4>
+                    <div style="text-align: center; max-width: 350px; margin: 0 auto;">
+                        <div class="image-container">
+                            <img src="images/good_contrast_dark_theme.png" alt="Improved Contrast Version">
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Adjusted text colors and button contrast to maintain dark aesthetic while improving accessibility and readability</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>Challenge: Medication Status Ambiguity</h4>
+                    <div style="text-align: center; max-width: 350px; margin: 0 auto;">
+                        <div class="image-container">
+                            <img src="images/before_color_difference_for_taken_vs_not_taken.png" alt="Unclear Status Indicators">
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Users couldn't immediately tell whether medication was taken or still pending without reading detailed text</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Solution: Clear Visual Confirmation</h4>
+                    <div style="text-align: center; max-width: 350px; margin: 0 auto;">
+                        <div class="image-container">
+                            <img src="images/after_color_difference_for_taken_vs_not_taken.png" alt="Enhanced Status Indicators">
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Implemented clear labels and visual confirmation states with color coding to reduce ambiguity</p>
+                </div>
+            </div>
+
+            <div class="comparison">
+                <div class="comparison-item">
+                    <h4>Design Decision: Role-Based Access</h4>
+                    <div style="text-align: center; max-width: 350px; margin: 0 auto;">
+                        <div class="image-container">
+                            <img src="images/Admin_role_can delete_not_user.png" alt="Admin Role Permissions">
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem;">Healthcare professionals and caregivers have admin privileges to manage data, while patients have standard user access to prevent accidental deletions</p>
+                </div>
+                <div class="comparison-item">
+                    <h4>Rationale: Safety & Control</h4>
+                    <div style="padding: 30px; background-color: #f0f8ff; border-radius: 8px; height: 100%; display: flex; align-items: center; justify-content: center;">
+                        <div>
+                            <p style="margin: 0; font-size: 1rem; line-height: 1.7;"><strong>Why This Matters:</strong></p>
+                            <ul style="margin-top: 12px; text-align: left; line-height: 1.7; font-size: 0.95rem;">
+                                <li>Prevents accidental data loss by patients</li>
+                                <li>Allows caregivers to manage medication schedules</li>
+                                <li>Gives healthcare providers oversight capabilities</li>
+                                <li>Maintains data integrity for medical records</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 40px;">
+                These iterative improvements ensured that the design remained aligned with user needs, 
+                particularly for the primary persona Marie Tremblay, who requires large buttons, clear feedback, 
+                and minimal information per screen. The refinements also addressed the needs of caregivers like 
+                Sophie who need quick status visibility without technical complexity.
+            </p>
+        </div>
+    </section>
+
+    <!-- Final Design -->
+    <section id="final" class="final-design">
+        <div class="container">
+            <h2>Final Design</h2>
+            <p>
+                The final design represents a balance between aesthetic appeal and functional simplicity. 
+                The Health Companion app uses a clean card-based layout with a persistent bottom navigation 
+                bar, ensuring users can always access key features: Home, Medication, Appointments, Messages, 
+                and Profile.
+            </p>
+
+            <h3 style="margin-top: 50px;">Design Highlights</h3>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+                <li><strong>Bottom Navigation:</strong> Consistent orientation across all screens, easy thumb access for mobile users</li>
+                <li><strong>Home Dashboard:</strong> Prioritizes "Today's medication status" followed by next appointment for immediate visibility</li>
+                <li><strong>Medication Cards:</strong> Individual cards display dosage, time, and clear status indicators with one-tap confirmation</li>
+                <li><strong>Calendar Integration:</strong> Simplified alarm setup with clear "Confirm" action buttons</li>
+                <li><strong>Messaging System:</strong> Separate conversations for doctors, nurses, and family with conversation previews</li>
+                <li><strong>Profile Management:</strong> Centralizes user information, health details, notification settings, caregiver access, and privacy options</li>
+                <li><strong>Dark Theme:</strong> Modern, calming aesthetic with carefully balanced contrast for readability</li>
+            </ul>
+
+            <h3>Final High-Fidelity Screens</h3>
+            <div style="margin: 40px auto; max-width: 1000px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; justify-items: center;">
+                    <div class="screen-card">
+                        <img src="images/Home_frame.png" alt="Home Screen">
+                        <p>Home Dashboard</p>
+                    </div>
+                    <div class="screen-card">
+                        <img src="images/View_Medication_frame.png" alt="Medication Screen">
+                        <p>Medication Tracking</p>
+                    </div>
+                    <div class="screen-card">
+                        <img src="images/Calendar&Alarm_frame.png" alt="Calendar Screen">
+                        <p>Appointment Calendar</p>
+                    </div>
+                    <div class="screen-card">
+                        <img src="images/Messages_frame.png" alt="Messages Screen">
+                        <p>Messages Hub</p>
+                    </div>
+                    <div class="screen-card">
+                        <img src="images/Conversation_frame.png" alt="Conversation Screen">
+                        <p>Healthcare Chat</p>
+                    </div>
+                    <div class="screen-card">
+                        <img src="images/Profile_frame.png" alt="Profile Screen">
+                        <p>User Profile</p>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align: center; margin-top: 40px;">
+                The app successfully addresses the needs of multiple user types: primary users like Marie who need 
+                simplicity and clarity, power users like Alex who want advanced features, caregivers like Sophie 
+                who need exception-based notifications, and healthcare professionals like Dr. Cohen who require 
+                concise patient summaries.
+            </p>
+        </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="reflection">
+        <div class="container">
+            <h2>Reflection & Learnings</h2>
+            <p>
+                The UX design process significantly shaped the development of the Health Companion application 
+                by ensuring that user needs remained central throughout the project. Beginning with persona 
+                creation helped clarify that the primary user may not be highly technical and may experience 
+                cognitive overload when presented with too much medical data. This insight directly influenced 
+                the decision to use a clean card-based layout, a persistent bottom navigation bar, and clear 
+                confirmation buttons instead of complex dashboards or analytics-heavy screens.
+            </p>
+
+            <h3>Key Design Challenges</h3>
+            <p>
+                One key challenge during the design process was <strong>balancing visual appeal with usability</strong>. 
+                The dark theme creates a modern and calming aesthetic, but it required careful attention to 
+                contrast and readability to ensure text and buttons remain accessible. Iterative adjustments 
+                were necessary to maintain clarity while preserving the visual consistency of the interface.
+            </p>
+
+            <p>
+                Another challenge involved <strong>structuring the Calendar & Alarm feature</strong> so that it did 
+                not feel overwhelming. Health-related scheduling can easily become complex, so the design focused 
+                on limiting visible options and emphasizing a single clear "Confirm" action.
+            </p>
+
+            <p>
+                Designing <strong>medication status indicators</strong> also required refinement. It was important 
+                that users immediately understand whether a medication was taken or still pending. Through iteration, 
+                the use of clear labels and visual confirmation states improved feedback and reduced ambiguity.
+            </p>
+
+            <h3>Key Takeaways</h3>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+                <li><strong>User-centered design prevents feature bloat:</strong> Rather than focusing solely on features, 
+                    the process emphasized clarity, accessibility, and reassurance</li>
+                <li><strong>Persona-driven decisions:</strong> Every design choice was validated against the needs of 
+                    Marie (simplicity), Alex (customization), Sophie (caregiver visibility), and Dr. Cohen (concise data)</li>
+                <li><strong>Accessibility from the start:</strong> Contrast, font size, and button placement were 
+                    considerations from initial wireframes, not afterthoughts</li>
+                <li><strong>Bottom navigation ensures consistency:</strong> Implementing bottom navigation minimized 
+                    cognitive load and provided reliable orientation</li>
+                <li><strong>Iterative refinement is essential:</strong> Visual appeal cannot compromise usability; 
+                    continuous testing and adjustment are necessary</li>
+            </ul>
+
+            <h3>Impact of the UX Process</h3>
+            <p>
+                Overall, the UX design process encouraged structured thinking, continuous evaluation, and 
+                user-centered decision-making. The final prototype is intuitive, realistic, and aligned with 
+                the needs of individuals managing chronic health conditions. The design successfully addresses 
+                the core problem: helping users remember medications, track intake, manage appointments, and 
+                communicate with healthcare professionals without feeling overwhelmed.
+            </p>
+
+            <div class="highlight-box" style="margin-top: 40px;">
+                <p style="margin: 0; font-size: 1.1rem; font-weight: 500; text-align: center;">
+                    <strong>📱 View the Interactive Prototype:</strong><br>
+                    <a href="https://www.figma.com/proto/uD1RhKxlrEv1yrsdKdVZvZ/Mini-Project-357?t=baYZeiPYBVTVJMsu-1&scaling=scale-down&content-scaling=fixed&page-id=68%3A164&node-id=68-170&starting-point-node-id=68%3A165" 
+                       target="_blank" 
+                       style="color: #2d9cdb; text-decoration: underline; font-size: 1.1rem;">
+                        Explore the full Health Companion prototype on Figma →
+                    </a>
+                </p>
+            </div>
+
+            <div style="margin-top: 50px; padding: 30px; background-color: white; border-radius: 8px; text-align: center;">
+                <p style="margin: 0; font-size: 1.2rem; font-weight: 500; color: #333333;">
+                    Thank you for reviewing this UX/UI case study!
+                </p>
+                <p style="margin-top: 10px; color: #666666;">
+                    Vincent | 2026 | UX/UI Design Course
+                </p>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
