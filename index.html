@@ -200,8 +200,8 @@
 
         .persona-card img {
             width: 100%;
-            height: 220px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(45, 156, 219, 0.1);
         }
@@ -263,14 +263,14 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 25px;
+            gap: 50px;
             margin: 40px 0;
         }
 
         .persona-grid > * {
-            flex: 0 0 calc(20% - 20px);
-            max-width: 200px;
-            min-width: 180px;
+            flex: 0 0 100%;
+            max-width: 900px;
+            min-width: 500px;
         }
 
         /* Prototype Grid */
@@ -333,8 +333,9 @@
         /* Responsive Design */
                 @media (max-width: 768px) {
             .persona-grid > * {
-                flex: 0 0 calc(50% - 12px);
-                max-width: none;
+                flex: 0 0 100%;
+                max-width: 700px;
+                min-width: 250px;
             }
         }
 
@@ -610,91 +611,13 @@
             </p>
             <div class="persona-grid">
                 <div class="persona-card">
-                    <img src="images/caregiver.webp" alt="Marie Tremblay - Main User">
-                    <p><strong>Marie Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Main User, Age 62</span></p>
+                    <img src="images/Marie Tremblay Persona.png" alt="Marie Tremblay - Main User">
+                    <p><strong>Marie Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Main User</span></p>
                 </div>
                 <div class="persona-card">
-                    <img src="images/Jean_tremblay.jpeg" alt="Jean Tremblay - Supporting Family Member">
-                    <p><strong>Jean Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Supporting Family, Age 65</span></p>
+                    <img src="images/Jean Tremblay Persona.png" alt="Jean Tremblay - Supporting Family Member">
+                    <p><strong>Jean Tremblay</strong><br><span style="font-weight: 400; font-size: 0.85rem;">Supporting Family</span></p>
                 </div>
-            </div>
-
-            <div style="margin-top: 40px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
-                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 1: Marie Tremblay – Main User</h4>
-                <p><strong>Age:</strong> 62 | <strong>Occupation:</strong> Retired elementary school teacher</p>
-                <p><strong>Health Condition:</strong> Type 2 diabetes & hypertension | <strong>Tech Comfort:</strong> Low–medium (uses smartphone daily, limited app exploration)</p>
-                <p><strong>Devices:</strong> iPhone smartphone</p>
-                
-                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Take medication at the correct time every day</li>
-                    <li>Avoid complications and hospital visits</li>
-                    <li>Feel confident she is managing her health correctly</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Wants to remain independent</li>
-                    <li>Fears long-term health deterioration</li>
-                    <li>Trusts tools recommended by healthcare professionals</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Often forgets whether she already took her medication</li>
-                    <li>Finds most health apps visually overwhelming</li>
-                    <li>Small text and complex navigation cause frustration</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Relies heavily on alarms and reminders</li>
-                    <li>Avoids exploring new features unless necessary</li>
-                    <li>Prefers confirmation messages ("Medication taken")</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>How She Uses the App:</strong> Receives daily medication reminders, confirms intake with one tap, reviews a simple daily summary (no charts or analytics)</p>
-                
-                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Large buttons and readable fonts, minimal information per screen, clear feedback after every action</p>
-            </div>
-
-            <div style="margin-top: 30px; padding: 25px; background-color: #f9f9f9; border-radius: 8px; border-left: 4px solid #2d9cdb;">
-                <h4 style="font-size: 1.4rem; margin-bottom: 20px; color: #2d9cdb;">Persona 2: Jean Tremblay – Supporting Family Member</h4>
-                <p><strong>Age:</strong> 65 | <strong>Occupation:</strong> Semi-retired accountant</p>
-                <p><strong>Relationship:</strong> Marie's husband</p>
-                <p><strong>Tech Comfort:</strong> Low | <strong>Devices:</strong> Smartphone (basic use), tablet</p>
-                
-                <p style="margin-top: 15px;"><strong>Goals:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Help his wife stay on track with her medication</li>
-                    <li>Understand her health status without managing the app himself</li>
-                    <li>Avoid making mistakes that could affect her health</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Motivations:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Wants to support his wife emotionally and practically</li>
-                    <li>Values reassurance that things are "under control"</li>
-                    <li>Prefers simple, familiar interactions</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Frustrations:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Finds most health apps confusing</li>
-                    <li>Unsure when or how to intervene</li>
-                    <li>Does not want to learn complex features</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>Behaviors:</strong></p>
-                <ul style="margin-left: 20px; line-height: 1.8;">
-                    <li>Occasionally checks reminders with Marie</li>
-                    <li>Relies on verbal confirmation rather than data</li>
-                    <li>Avoids interacting directly with the app unless necessary</li>
-                </ul>
-                
-                <p style="margin-top: 15px;"><strong>How He Uses the App:</strong> Views a very simple confirmation screen when helping Marie, receives reassurance messages like "Today's medication completed", rarely navigates beyond the home screen</p>
-                
-                <p style="margin-top: 15px;"><strong>UX Design Implications:</strong> Extremely simple shared-view or companion mode, clear status indicators (taken / not taken), no requirement to configure settings or manage data</p>
             </div>
 
             <h3 style="margin-top: 50px;">User Journey Maps</h3>
@@ -704,9 +627,9 @@
             </p>
 
             <h4 style="font-size: 1.3rem; margin-top: 40px; margin-bottom: 20px; color: #2d9cdb; text-align: center;">Marie Tremblay – Primary User Journey</h4>
-            <div style="margin: 30px 0; max-width: 900px; margin-left: auto; margin-right: auto;">
-                <div class="image-container">
-                    <img src="images/User Journey Map.png" alt="Marie Tremblay User Journey Map">
+            <div style="margin: 30px 0; max-width: 100%; margin-left: auto; margin-right: auto;">
+                <div class="image-container" style="box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1); border-radius: 12px; overflow: visible;">
+                    <img src="images/User Journey Map Marie.png" alt="Marie Tremblay User Journey Map" style="width: 100%; height: auto; display: block; object-fit: contain;">
                 </div>
             </div>
             <p style="margin-top: 20px;">
@@ -717,9 +640,9 @@
             </p>
 
             <h4 style="font-size: 1.3rem; margin-top: 50px; margin-bottom: 20px; color: #2d9cdb; text-align: center;">Jean Tremblay – Supporting Family Member Journey</h4>
-            <div style="margin: 30px 0; max-width: 900px; margin-left: auto; margin-right: auto;">
-                <div class="image-container">
-                    <img src="images/User Journey Map Jean.png" alt="Jean Tremblay User Journey Map">
+            <div style="margin: 30px 0; max-width: 100%; margin-left: auto; margin-right: auto;">
+                <div class="image-container" style="box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1); border-radius: 12px; overflow: visible;">
+                    <img src="images/User Journey Map Jean.png" alt="Jean Tremblay User Journey Map" style="width: 100%; height: auto; display: block; object-fit: contain;">
                 </div>
             </div>
             <p style="margin-top: 20px;">
