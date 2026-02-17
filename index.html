@@ -21,7 +21,7 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
+            background: linear-gradient(to bottom, #f8fbff 0%, #ffffff 100%);
             color: #333333;
             line-height: 1.6;
             overflow-x: hidden;
@@ -31,11 +31,13 @@
         nav {
             position: sticky;
             top: 0;
-            background-color: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 15px rgba(45, 156, 219, 0.08);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(45, 156, 219, 0.1);
+            border-bottom: 1px solid rgba(45, 156, 219, 0.1);
             z-index: 1000;
             padding: 20px 0;
+            transition: all 0.3s ease;
         }
 
         nav .container {
@@ -48,9 +50,12 @@
         }
 
         nav .logo {
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: #2d9cdb;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: linear-gradient(135deg, #2d9cdb 0%, #1e88c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         nav ul {
@@ -64,11 +69,28 @@
             color: #555555;
             font-weight: 500;
             font-size: 0.95rem;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
         }
 
         nav ul li a:hover {
             color: #2d9cdb;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2d9cdb, #1e88c7);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* Container */
@@ -80,23 +102,42 @@
 
         /* Section Styling */
         section {
-            padding: 80px 0;
+            padding: 100px 0;
+            position: relative;
         }
 
         section h2 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             color: #1a1a1a;
             text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #2d9cdb, #1e88c7);
+            border-radius: 2px;
         }
 
         section h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 30px;
-            margin-top: 50px;
-            color: #2d9cdb;
+            margin-bottom: 35px;
+            margin-top: 60px;
+            background: linear-gradient(135deg, #2d9cdb 0%, #1e88c7 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-align: center;
         }
 
@@ -110,38 +151,65 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(135deg, #e3f2fd 0%, #ffffff 100%);
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(45, 156, 219, 0.08) 0%, transparent 70%);
+            animation: pulse 10s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 700;
-            color: #1a1a1a;
-            margin-bottom: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d9cdb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero .subtitle {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             color: #666666;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-weight: 400;
+            position: relative;
+            z-index: 1;
         }
 
         .hero .meta {
-            font-size: 1rem;
+            font-size: 1.05rem;
             color: #888888;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-image {
-            margin-top: 60px;
+            margin-top: 70px;
             width: 100%;
             max-width: 900px;
             height: 500px;
             background-color: #e0e0e0;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(45, 156, 219, 0.2);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -149,6 +217,14 @@
             margin-right: auto;
             color: #999999;
             font-size: 1.2rem;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(45, 156, 219, 0.3);
         }
 
         /* Problem Statement */
@@ -182,9 +258,15 @@
         /* Image Containers */
         .image-container {
             width: 100%;
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1);
+            box-shadow: 0 8px 30px rgba(45, 156, 219, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .image-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(45, 156, 219, 0.22);
         }
 
         .image-container img {
@@ -196,28 +278,46 @@
         /* Persona Cards */
         .persona-card {
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .persona-card:hover {
+            transform: scale(1.02);
         }
 
         .persona-card img {
             width: 100%;
             height: auto;
             object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(45, 156, 219, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(45, 156, 219, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .persona-card img:hover {
+            box-shadow: 0 12px 40px rgba(45, 156, 219, 0.25);
         }
 
         .persona-card p {
-            margin-top: 12px;
+            margin-top: 15px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            color: #1a1a1a;
         }
 
         /* Sketch Cards */
         .sketch-card {
             text-align: center;
-            background-color: #f8f9fa;
-            padding: 15px;
-            border-radius: 10px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(45, 156, 219, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .sketch-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(45, 156, 219, 0.15);
         }
 
         .sketch-card img {
@@ -225,21 +325,26 @@
             height: 200px;
             object-fit: contain;
             background-color: white;
-            border-radius: 8px;
+            border-radius: 10px;
             padding: 10px;
             box-shadow: 0 2px 10px rgba(45, 156, 219, 0.08);
         }
 
         .sketch-card p {
-            margin-top: 12px;
+            margin-top: 15px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #555;
         }
 
         /* Screen Cards for Prototype */
         .screen-card {
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .screen-card:hover {
+            transform: scale(1.05);
         }
 
         .screen-card img {
@@ -247,14 +352,19 @@
             max-width: 240px;
             height: auto;
             margin: 0 auto;
-            border-radius: 14px;
-            box-shadow: 0 6px 20px rgba(45, 156, 219, 0.15);
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(45, 156, 219, 0.18);
+            transition: all 0.3s ease;
+        }
+
+        .screen-card img:hover {
+            box-shadow: 0 12px 35px rgba(45, 156, 219, 0.28);
         }
 
         .screen-card p {
-            margin-top: 12px;
+            margin-top: 15px;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #666;
         }
 
@@ -429,11 +539,19 @@
         }
 
         .highlight-box {
-            background-color: #e3f2fd;
-            padding: 30px;
-            border-radius: 10px;
-            border-left: 4px solid #2d9cdb;
-            margin: 30px 0;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f8ff 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border-left: 5px solid #2d9cdb;
+            margin: 40px 0;
+            box-shadow: 0 8px 30px rgba(45, 156, 219, 0.12);
+            transition: all 0.3s ease;
+        }
+
+        .highlight-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(45, 156, 219, 0.18);
+            border-left-color: #1e88c7;
         }
     </style>
 </head>
@@ -472,18 +590,65 @@
         <div class="container">
             <h2>Problem Statement</h2>
             <p>
-                People with chronic conditions face significant challenges in managing their health: they forget 
-                medications, miss appointments, and feel overwhelmed managing health information across multiple 
-                platforms. Current health apps are often confusing, visually overwhelming, and don't adequately 
-                support communication between patients, caregivers, and healthcare professionals.
+                Chronic disease management requires consistent daily routines, including medication adherence, 
+                appointment attendance, and ongoing communication with healthcare professionals. However, many 
+                individuals living with chronic conditions struggle to maintain these routines due to forgetfulness, 
+                complex treatment schedules, stress, and overwhelming health information.
+            </p>
+            <p>
+                Research consistently shows that medication non-adherence is a widespread issue in chronic care 
+                management. Missed doses, delayed refills, and forgotten appointments can lead to worsening health 
+                outcomes, preventable hospital visits, and increased anxiety. For older adults in particular, 
+                digital health tools often introduce new barriers due to small text, cluttered interfaces, and 
+                overly complex features.
+            </p>
+            <p>
+                Beyond adherence, many patients experience cognitive overload when managing multiple medications, 
+                appointment schedules, and medical instructions. Existing health applications frequently prioritize 
+                data visualization and analytics over clarity and usability, making them difficult to navigate for 
+                users with low to moderate technological comfort.
+            </p>
+
+            <h3 style="margin-top: 40px;">Goal of the App</h3>
+            <p>
+                The goal of this health companion app is to reduce cognitive burden and support daily health 
+                management through a simple, structured, and reassuring interface.
             </p>
             <div class="highlight-box">
-                <p style="margin: 0; font-weight: 500;">
-                    <span class="accent">Goal:</span> Help users remember medications, track intake, manage 
-                    appointments, and communicate with healthcare professionals through a simple, intuitive 
-                    interface designed for people with chronic conditions, their caregivers, and healthcare providers.
+                <p style="margin-bottom: 15px;"><strong>The app is designed to help users:</strong></p>
+                <ul style="margin: 0; line-height: 2; margin-left: 20px;">
+                    <li>Remember and confirm medication intake</li>
+                    <li>Track daily medication status with minimal effort</li>
+                    <li>Manage upcoming appointments and alarms</li>
+                    <li>Communicate non-urgent messages with healthcare providers</li>
+                    <li>Feel confident and in control of their health</li>
+                </ul>
+                <p style="margin-top: 20px; margin-bottom: 0;">
+                    Rather than overwhelming users with advanced dashboards or analytics, the app prioritizes 
+                    <strong>clarity, accessibility, and emotional reassurance</strong>.
                 </p>
             </div>
+
+            <h3 style="margin-top: 40px;">Target Context</h3>
+            <p>
+                The primary users are older adults managing chronic conditions who have basic smartphone familiarity 
+                but limited interest in exploring complex features. A secondary user group includes supportive family 
+                members who want reassurance and visibility without needing to manage the system directly.
+            </p>
+            <p>
+                <strong>The design approach emphasizes:</strong>
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-bottom: 30px;">
+                <li>Large, readable typography</li>
+                <li>Minimal cognitive load per screen</li>
+                <li>Clear confirmation feedback after actions</li>
+                <li>Simple navigation with consistent structure</li>
+                <li>Emotional reassurance through visible status indicators</li>
+            </ul>
+            <p>
+                By focusing on usability, predictability, and simplicity, the application aims to bridge the gap 
+                between digital health innovation and real-world patient needs.
+            </p>
         </div>
     </section>
 
@@ -842,21 +1007,46 @@
             <h2>Usability Testing</h2>
             <p>
                 To evaluate the effectiveness of the Health Companion prototype, a formative usability test 
-                was planned focusing on task completion, navigation clarity, and information hierarchy. The 
-                goal was to determine whether users can easily manage medications, view appointments, and 
-                communicate with healthcare professionals using the bottom navigation structure and card-based 
-                interface.
+                was designed to assess how easily users can complete core health management tasks. The primary 
+                objective was to validate whether the interface supports clear navigation, low cognitive load, 
+                and intuitive task completion, particularly for users similar to Marie Tremblay, who may not 
+                be highly comfortable with complex digital tools.
             </p>
+            <p>
+                The focus of the test was on three main dimensions:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-bottom: 30px;">
+                <li>Task completion and efficiency</li>
+                <li>Navigation clarity (bottom navigation structure)</li>
+                <li>Information hierarchy and visual readability</li>
+            </ul>
 
             <h3>Testing Methodology</h3>
             <p>
-                The test would involve 5–7 participants representing individuals managing chronic conditions, 
-                such as Type 2 Diabetes or hypertension (similar to persona Marie Tremblay). Participants would 
-                interact with the clickable Figma prototype on a mobile-sized display (390 × 844).
+                A small-scale moderated usability test would be conducted with 5–7 participants representing 
+                individuals managing chronic conditions such as Type 2 diabetes or hypertension. Participants 
+                would ideally be aged 40+, with varying levels of technological comfort to reflect the primary 
+                persona.
             </p>
+            <p>
+                The prototype would be tested on a mobile-sized display (390 × 844) using a clickable Figma 
+                prototype to simulate a realistic smartphone interaction.
+            </p>
+            <p>
+                Each session would last approximately 20–30 minutes and follow this structure:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-bottom: 30px;">
+                <li>Brief introduction and explanation of the purpose</li>
+                <li>Task-based interaction with the prototype</li>
+                <li>Think-aloud protocol during task execution</li>
+                <li>Short post-test interview and satisfaction questions</li>
+            </ul>
 
             <h3>Test Tasks</h3>
-            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
+            <p>
+                Participants would be asked to complete the following tasks without guidance:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 20px;">
                 <li>Check today's medication status on the Home screen</li>
                 <li>Navigate to the Medication screen and mark a medication as taken</li>
                 <li>Set an alarm in the Calendar & Alarm section</li>
@@ -864,30 +1054,55 @@
                 <li>Open a message conversation with a doctor</li>
                 <li>Locate notification settings within the Profile screen</li>
             </ul>
-
-            <h3>Observation Focus</h3>
             <p>
-                A think-aloud method would be used during testing to understand users' thought processes. 
-                Observations would focus on:
+                These tasks were selected because they represent the most critical user flows in the application.
             </p>
-            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
-                <li>Whether users understand status labels such as "Status: Today" and green confirmation indicators</li>
-                <li>Whether they can easily identify the "Confirm" button in the alarm setup</li>
-                <li>Whether the bottom navigation icons are intuitive</li>
-                <li>Task completion time and navigation errors</li>
-                <li>Visual clarity of the dark interface and text readability</li>
+
+            <h3>Data Collection & Observation Focus</h3>
+            <p>
+                The think-aloud method would be used to understand how users interpret labels, icons, and 
+                interface elements in real time. Observations would focus on:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 20px;">
+                <li>Whether users understand labels such as "Status: Today" and green confirmation indicators</li>
+                <li>Whether they can quickly identify the primary "Confirm" button in the alarm setup</li>
+                <li>Whether bottom navigation icons are intuitive without additional explanation</li>
+                <li>Task completion time</li>
+                <li>Number of navigation errors or hesitations</li>
+                <li>Verbal signs of confusion or frustration</li>
+                <li>Readability of text within the dark interface</li>
             </ul>
+            <p>
+                Basic quantitative metrics (task success rate and average completion time) would be recorded, 
+                while qualitative observations would capture user comments and behavioral patterns.
+            </p>
+
+            <h3>Analysis & Iteration Plan</h3>
+            <p>
+                Feedback would be analyzed by identifying recurring usability issues across participants. 
+                For example:
+            </p>
+            <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 20px;">
+                <li>If multiple users hesitate before pressing "Confirm," this may indicate poor visual hierarchy</li>
+                <li>If users misinterpret status labels, wording or visual cues may need refinement</li>
+                <li>If users struggle with calendar navigation, the feature may be too dense or visually overwhelming</li>
+            </ul>
+            <p>
+                Issues would be categorized by severity (minor confusion vs. task failure). Design adjustments 
+                would then prioritize high-impact problems affecting core flows.
+            </p>
 
             <div class="highlight-box">
-                <h3 style="margin-top: 0;">Expected Findings & Iterations</h3>
-                <p style="margin-bottom: 15px;">
-                    Feedback would be analyzed by identifying recurring usability issues, such as confusion 
-                    about labels, difficulty locating features, or visual overload in sections like the calendar.
-                </p>
+                <p style="margin-bottom: 15px;"><strong>Planned improvements include:</strong></p>
+                <ul style="margin: 0 0 15px 20px; line-height: 2;">
+                    <li>Increasing contrast for primary action buttons</li>
+                    <li>Enlarging confirmation indicators</li>
+                    <li>Simplifying calendar controls</li>
+                    <li>Strengthening bottom navigation labels with clearer icon-text pairing</li>
+                </ul>
                 <p style="margin: 0;">
-                    <strong>Planned Improvements:</strong> Increasing contrast for important buttons, enlarging 
-                    confirmation indicators, simplifying calendar controls, and clarifying tab icons with 
-                    stronger labels. The prototype would then be refined and retested to validate improvements.
+                    After revisions, a second round of testing would be conducted to validate improvements 
+                    and confirm reduced friction.
                 </p>
             </div>
         </div>
@@ -976,8 +1191,8 @@
             <p style="margin-top: 40px;">
                 These iterative improvements ensured that the design remained aligned with user needs, 
                 particularly for the primary persona Marie Tremblay, who requires large buttons, clear feedback, 
-                and minimal information per screen. The refinements also addressed the needs of caregivers like 
-                Sophie who need quick status visibility without technical complexity.
+                and minimal information per screen. The refinements also addressed the needs of family caregivers like 
+                Jean Tremblay who need quick status visibility without technical complexity.
             </p>
         </div>
     </section>
@@ -1035,10 +1250,10 @@
             </div>
 
             <p style="text-align: center; margin-top: 40px;">
-                The app successfully addresses the needs of multiple user types: primary users like Marie who need 
-                simplicity and clarity, power users like Alex who want advanced features, caregivers like Sophie 
-                who need exception-based notifications, and healthcare professionals like Dr. Cohen who require 
-                concise patient summaries.
+                The app successfully addresses the needs of its primary user types: Marie Tremblay, who needs 
+                simplicity and clarity for managing her own medications, and Jean Tremblay, her son who acts as a family 
+                caregiver and needs visibility into his mother's medication adherence and quick status updates 
+                without technical complexity.
             </p>
         </div>
     </section>
@@ -1048,55 +1263,71 @@
         <div class="container">
             <h2>Reflection & Learnings</h2>
             <p>
-                The UX design process significantly shaped the development of the Health Companion application 
-                by ensuring that user needs remained central throughout the project. Beginning with persona 
-                creation helped clarify that the primary user may not be highly technical and may experience 
-                cognitive overload when presented with too much medical data. This insight directly influenced 
-                the decision to use a clean card-based layout, a persistent bottom navigation bar, and clear 
-                confirmation buttons instead of complex dashboards or analytics-heavy screens.
+                The UX design process had a significant impact on how the Health Companion application evolved. 
+                At the beginning of the project, it was tempting to focus on adding features such as detailed 
+                analytics and advanced health tracking. However, developing detailed personas, especially Marie 
+                Tremblay, shifted the focus toward simplicity, clarity, and reassurance.
+            </p>
+            <p>
+                Understanding that the primary user may experience cognitive overload changed several design 
+                decisions. Instead of using dense dashboards or complex graphs, the interface prioritizes clear 
+                status indicators, large confirmation buttons, and a structured card-based layout. The persistent 
+                bottom navigation bar was intentionally implemented to reduce disorientation and provide a 
+                predictable interaction pattern across all screens.
             </p>
 
             <h3>Key Design Challenges</h3>
             <p>
-                One key challenge during the design process was <strong>balancing visual appeal with usability</strong>. 
-                The dark theme creates a modern and calming aesthetic, but it required careful attention to 
-                contrast and readability to ensure text and buttons remain accessible. Iterative adjustments 
-                were necessary to maintain clarity while preserving the visual consistency of the interface.
+                One of the main challenges was <strong>balancing visual aesthetics with usability</strong>. 
+                The dark theme gives the app a modern and calming appearance, but it required careful attention 
+                to contrast ratios and text hierarchy. During early iterations, some labels lacked sufficient 
+                visual emphasis, making it harder to quickly identify primary actions. Adjustments were made by 
+                increasing contrast, enlarging action buttons, and simplifying visual elements.
             </p>
 
             <p>
-                Another challenge involved <strong>structuring the Calendar & Alarm feature</strong> so that it did 
-                not feel overwhelming. Health-related scheduling can easily become complex, so the design focused 
-                on limiting visible options and emphasizing a single clear "Confirm" action.
+                Another challenge involved the <strong>Calendar & Alarm feature</strong>. Scheduling health-related 
+                tasks can easily become overwhelming, particularly for users managing multiple medications. The 
+                initial design included too many visible controls, which created visual clutter. Through iteration, 
+                the interface was simplified to emphasize a single clear "Confirm" action and reduce unnecessary 
+                complexity.
             </p>
 
             <p>
                 Designing <strong>medication status indicators</strong> also required refinement. It was important 
-                that users immediately understand whether a medication was taken or still pending. Through iteration, 
-                the use of clear labels and visual confirmation states improved feedback and reduced ambiguity.
+                that users immediately understand whether a medication was taken, pending, or missed. Early mockups 
+                relied too heavily on color alone. Later versions incorporated clearer labels and stronger 
+                confirmation feedback to improve accessibility and reduce ambiguity.
             </p>
 
             <h3>Key Takeaways</h3>
+            <p>
+                Several important insights emerged from this process:
+            </p>
             <ul style="font-size: 1.1rem; line-height: 1.8; color: #555555; margin-left: 30px; margin-top: 20px; margin-bottom: 30px;">
-                <li><strong>User-centered design prevents feature bloat:</strong> Rather than focusing solely on features, 
-                    the process emphasized clarity, accessibility, and reassurance</li>
-                <li><strong>Persona-driven decisions:</strong> Every design choice was validated against the needs of 
-                    Marie (simplicity), Alex (customization), Sophie (caregiver visibility), and Dr. Cohen (concise data)</li>
-                <li><strong>Accessibility from the start:</strong> Contrast, font size, and button placement were 
-                    considerations from initial wireframes, not afterthoughts</li>
-                <li><strong>Bottom navigation ensures consistency:</strong> Implementing bottom navigation minimized 
-                    cognitive load and provided reliable orientation</li>
-                <li><strong>Iterative refinement is essential:</strong> Visual appeal cannot compromise usability; 
-                    continuous testing and adjustment are necessary</li>
+                <li><strong>User-centered design prevents feature bloat:</strong> Prioritizing user goals over 
+                    feature quantity resulted in a cleaner and more focused product</li>
+                <li><strong>Persona-driven decisions ensure alignment:</strong> Every major design choice was 
+                    validated against Marie's need for simplicity and Jean's need for efficiency and quick status access</li>
+                <li><strong>Accessibility must be considered from the beginning:</strong> Contrast, font size, and 
+                    button placement were integrated early in the wireframing stage rather than adjusted afterward</li>
+                <li><strong>Consistent navigation reduces cognitive load:</strong> The bottom navigation bar provides 
+                    stability and improves orientation</li>
+                <li><strong>Iteration is essential:</strong> Initial ideas often required refinement after stepping 
+                    back and evaluating the interface from the user's perspective</li>
             </ul>
 
-            <h3>Impact of the UX Process</h3>
+            <h3>Overall Impact of the UX Process</h3>
             <p>
-                Overall, the UX design process encouraged structured thinking, continuous evaluation, and 
-                user-centered decision-making. The final prototype is intuitive, realistic, and aligned with 
-                the needs of individuals managing chronic health conditions. The design successfully addresses 
-                the core problem: helping users remember medications, track intake, manage appointments, and 
-                communicate with healthcare professionals without feeling overwhelmed.
+                The UX design process encouraged structured thinking and continuous evaluation rather than jumping 
+                directly into interface design. By grounding decisions in personas and anticipated usability testing 
+                results, the final prototype feels intuitive and realistic.
+            </p>
+            <p>
+                Most importantly, the application addresses the core problem: helping individuals manage medications, 
+                appointments, and healthcare communication without feeling overwhelmed. The final design reflects a 
+                balance between clarity, accessibility, and functionality, which was only possible through a 
+                deliberate user-centered approach.
             </p>
 
             <div class="highlight-box" style="margin-top: 40px;">
