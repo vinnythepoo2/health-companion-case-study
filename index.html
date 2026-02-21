@@ -309,7 +309,7 @@
         .sketch-card {
             text-align: center;
             background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(45, 156, 219, 0.08);
             transition: all 0.3s ease;
@@ -322,7 +322,7 @@
 
         .sketch-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
             object-fit: contain;
             background-color: white;
             border-radius: 10px;
@@ -331,10 +331,18 @@
         }
 
         .sketch-card p {
-            margin-top: 15px;
+            margin-top: 12px;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555;
+        }
+
+        /* Sketch Grid */
+        .sketch-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
 
         /* Screen Cards for Prototype */
@@ -792,9 +800,9 @@
             </p>
 
             <h4 style="font-size: 1.3rem; margin-top: 40px; margin-bottom: 20px; color: #2d9cdb; text-align: center;">Marie Tremblay – Primary User Journey</h4>
-            <div style="margin: 30px 0; max-width: 100%; margin-left: auto; margin-right: auto;">
-                <div class="image-container" style="box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1); border-radius: 12px; overflow: visible;">
-                    <img src="images/User Journey Map Marie.png" alt="Marie Tremblay User Journey Map" style="width: 100%; height: auto; display: block; object-fit: contain;">
+            <div style="margin: 30px 0; width: 100%; overflow-x: auto;">
+                <div class="image-container" style="box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1); border-radius: 12px; min-width: 900px;">
+                    <img src="images/User Journey Map Marie.png" alt="Marie Tremblay User Journey Map" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
             <p style="margin-top: 20px;">
@@ -805,9 +813,9 @@
             </p>
 
             <h4 style="font-size: 1.3rem; margin-top: 50px; margin-bottom: 20px; color: #2d9cdb; text-align: center;">Jean Tremblay – Supporting Family Member Journey</h4>
-            <div style="margin: 30px 0; max-width: 100%; margin-left: auto; margin-right: auto;">
-                <div class="image-container" style="box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1); border-radius: 12px; overflow: visible;">
-                    <img src="images/User Journey Map Jean.png" alt="Jean Tremblay User Journey Map" style="width: 100%; height: auto; display: block; object-fit: contain;">
+            <div style="margin: 30px 0; width: 100%; overflow-x: auto;">
+                <div class="image-container" style="box-shadow: 0 4px 20px rgba(45, 156, 219, 0.1); border-radius: 12px; min-width: 900px;">
+                    <img src="images/User Journey Map Jean.png" alt="Jean Tremblay User Journey Map" style="width: 100%; height: auto; display: block;">
                 </div>
             </div>
             <p style="margin-top: 20px;">
@@ -853,7 +861,7 @@
             </p>
 
             <h3>Early Sketches & Low-Fidelity Planning</h3>
-            <div class="persona-grid">
+            <div class="sketch-grid">
                 <div class="sketch-card">
                     <img src="images/sketch_medication_reminder_card.jpeg" alt="Medication Reminder Card Sketch">
                     <p>Medication Card Concept</p>
